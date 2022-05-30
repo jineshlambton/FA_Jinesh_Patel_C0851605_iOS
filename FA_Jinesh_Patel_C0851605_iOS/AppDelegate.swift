@@ -6,12 +6,25 @@
 //
 
 import UIKit
+import CoreData
+
+let appDelegate = UIApplication.shared.delegate as! AppDelegate
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-
-
+    var arrData : [NSManagedObject] = []
+    
+    lazy var persistentContainer: NSPersistentContainer = {
+      let container = NSPersistentContainer(name: "MyGameData")
+      container.loadPersistentStores(completionHandler: { (storeDescription, error) in
+        if let error = error as NSError? {
+          fatalError("Unresolved error \(error), \(error.userInfo)")
+        }
+      })
+      return container
+    }()
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         return true

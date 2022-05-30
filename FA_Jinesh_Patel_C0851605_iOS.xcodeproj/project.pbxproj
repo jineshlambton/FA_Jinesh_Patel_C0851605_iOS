@@ -14,6 +14,9 @@
 		AC4E1C6C28446A2E00E7639A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC4E1C6A28446A2E00E7639A /* LaunchScreen.storyboard */; };
 		AC4E1C7428446C6400E7639A /* MainBoard.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4E1C7328446C6400E7639A /* MainBoard.swift */; };
 		AC4E1C7628446FD000E7639A /* CustomEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4E1C7528446FD000E7639A /* CustomEnum.swift */; };
+		AC4E1C792844770F00E7639A /* MyGameData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = AC4E1C772844770F00E7639A /* MyGameData.xcdatamodeld */; };
+		AC4E1C7B284477B600E7639A /* CoreDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4E1C7A284477B600E7639A /* CoreDataHelper.swift */; };
+		AC4E1C7D2844816300E7639A /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4E1C7C2844816300E7639A /* Constant.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +29,9 @@
 		AC4E1C6D28446A2E00E7639A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AC4E1C7328446C6400E7639A /* MainBoard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainBoard.swift; sourceTree = "<group>"; };
 		AC4E1C7528446FD000E7639A /* CustomEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomEnum.swift; sourceTree = "<group>"; };
+		AC4E1C782844770F00E7639A /* MyGameData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MyGameData.xcdatamodel; sourceTree = "<group>"; };
+		AC4E1C7A284477B600E7639A /* CoreDataHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataHelper.swift; sourceTree = "<group>"; };
+		AC4E1C7C2844816300E7639A /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +72,9 @@
 				AC4E1C6D28446A2E00E7639A /* Info.plist */,
 				AC4E1C7328446C6400E7639A /* MainBoard.swift */,
 				AC4E1C7528446FD000E7639A /* CustomEnum.swift */,
+				AC4E1C772844770F00E7639A /* MyGameData.xcdatamodeld */,
+				AC4E1C7A284477B600E7639A /* CoreDataHelper.swift */,
+				AC4E1C7C2844816300E7639A /* Constant.swift */,
 			);
 			path = FA_Jinesh_Patel_C0851605_iOS;
 			sourceTree = "<group>";
@@ -141,6 +150,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AC4E1C7D2844816300E7639A /* Constant.swift in Sources */,
+				AC4E1C7B284477B600E7639A /* CoreDataHelper.swift in Sources */,
+				AC4E1C792844770F00E7639A /* MyGameData.xcdatamodeld in Sources */,
 				AC4E1C6028446A2C00E7639A /* AppDelegate.swift in Sources */,
 				AC4E1C6228446A2C00E7639A /* SceneDelegate.swift in Sources */,
 				AC4E1C7428446C6400E7639A /* MainBoard.swift in Sources */,
@@ -360,6 +372,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		AC4E1C772844770F00E7639A /* MyGameData.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				AC4E1C782844770F00E7639A /* MyGameData.xcdatamodel */,
+			);
+			currentVersion = AC4E1C782844770F00E7639A /* MyGameData.xcdatamodel */;
+			path = MyGameData.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = AC4E1C5428446A2C00E7639A /* Project object */;
 }

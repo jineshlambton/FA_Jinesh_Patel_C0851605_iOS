@@ -11,3 +11,15 @@ enum TURN {
     case NOUGHT
     case CROSS
 }
+
+enum MoveOfButton : String {
+    case a1
+    case a2
+    case a3
+    case b1
+    case b2
+    case b3
+    case c1
+    case c2
+    case c3
+}
