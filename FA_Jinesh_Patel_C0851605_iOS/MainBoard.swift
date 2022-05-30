@@ -64,7 +64,26 @@ class MainBoard: UIViewController {
     }
     
     @IBAction func swipeGestureEven(_ sender: UISwipeGestureRecognizer) {
-        
+        switch sender.direction {
+        case .right:
+            let alert = UIAlertController(title: title, message: "Start new game?", preferredStyle: .actionSheet)
+            alert.addAction(UIAlertAction(title: "Start again", style: .default, handler: { (_) in
+                self.clearBoard()
+                self.lblXScore.text = "SCORE X :"
+                self.lblOScore.text = "SCORE O :"
+            }))
+            self.present(alert, animated: true)
+        case .left:
+            let alert = UIAlertController(title: title, message: "Start new game?", preferredStyle: .actionSheet)
+            alert.addAction(UIAlertAction(title: "Start again", style: .default, handler: { (_) in
+                self.clearBoard()
+                self.lblXScore.text = "SCORE X :"
+                self.lblOScore.text = "SCORE O :"
+            }))
+            self.present(alert, animated: true)
+        default:
+            break
+        }
     }
     
     //MARK: - Custom methods
