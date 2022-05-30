@@ -12,6 +12,7 @@ import CoreData
 class CoreDataHelper {
     static var instance : CoreDataHelper = CoreDataHelper()
     
+    /// This methods return total count of data added for board
     func totalDataCount() -> Int {
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: Constant.ENTITY_BOARD)
         fetchRequest.predicate = NSPredicate(format: "id = %@", Constant.GAME_ID)
@@ -29,8 +30,8 @@ class CoreDataHelper {
         return 0
     }
     
+    /// This method can be called first time when user initiate game
     func saveFirstTime(turn : String) {
-      
       guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
         return
       }
@@ -50,6 +51,7 @@ class CoreDataHelper {
         }
     }
     
+    /// This method will be called when user tap on "O" or "X"
     func addBoard(move : MoveOfButton, turn : String, start : String) {
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: Constant.ENTITY_BOARD)
         fetchRequest.predicate = NSPredicate(format: "id = %@", Constant.GAME_ID)
@@ -81,6 +83,7 @@ class CoreDataHelper {
         }
     }
     
+    /// This method will be called to save first move
     func changePlayer(move : String) {
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: Constant.ENTITY_BOARD)
         fetchRequest.predicate = NSPredicate(format: "id = %@", Constant.GAME_ID)
@@ -102,6 +105,7 @@ class CoreDataHelper {
         }
     }
     
+    /// This method will be called when user shake device to remove last move
     func removeRecentItem(turn : String) {
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: Constant.ENTITY_BOARD)
         fetchRequest.predicate = NSPredicate(format: "id = %@", Constant.GAME_ID)
@@ -128,6 +132,7 @@ class CoreDataHelper {
         }
     }
     
+    /// This method will be called to update count of NOUGHT value
     func modifyNoughtValue(count : Int) {
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: Constant.ENTITY_BOARD)
         fetchRequest.predicate = NSPredicate(format: "id = %@", Constant.GAME_ID)
@@ -149,6 +154,7 @@ class CoreDataHelper {
         }
     }
     
+    /// This method will be called to update count of CROSS value
     func modifyCrossValue(count : Int) {
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: Constant.ENTITY_BOARD)
         fetchRequest.predicate = NSPredicate(format: "id = %@", Constant.GAME_ID)
@@ -173,6 +179,7 @@ class CoreDataHelper {
         }
     }
     
+    /// This method will be called to sync database with application
     func syncDatabase() {
         appDelegate.arrData.removeAll()
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
@@ -189,6 +196,7 @@ class CoreDataHelper {
         }
     }
     
+    /// This method will be called when user wants to reset data in database(When swipe gesture is called)
     func resetBoardFromDatabase() {
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: Constant.ENTITY_BOARD)
         fetchRequest.predicate = NSPredicate(format: "id = %@", Constant.GAME_ID)

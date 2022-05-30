@@ -95,6 +95,7 @@ class MainBoard: UIViewController {
     
     //MARK: - Custom methods
     
+    /// This method is useful to display data from database and user can resume game from when he/she left
     func checkDataAndDisplay() {
         
         if CoreDataHelper.instance.totalDataCount() == 0
@@ -143,7 +144,7 @@ class MainBoard: UIViewController {
         }
     }
     
-    
+    /// To get next move in string
     private func getNextMove(move : String) -> String {
         if move == "X" {
             return "O"
@@ -152,6 +153,7 @@ class MainBoard: UIViewController {
         }
     }
     
+    /// To get next move in ENUM format
     private func getNextMoveEnum(move : String) ->  TURN {
         if move == "X" {
             return TURN.NOUGHT
@@ -160,7 +162,7 @@ class MainBoard: UIViewController {
         }
     }
     
-    
+    /// This method will be called first time when user initate the screen
     private func setUpControls() {
         a1.tag = 1
         a2.tag = 2
@@ -183,6 +185,7 @@ class MainBoard: UIViewController {
         arrBoardButtons.append(c3)
     }
     
+    /// To check that is the state is winning of not
     private func isWin(_ s :String) -> Bool {
         if isSameSymbol(a1, s) && isSameSymbol(a2, s) && isSameSymbol(a3, s){
             return true
@@ -211,10 +214,12 @@ class MainBoard: UIViewController {
         return false
     }
     
+    /// To check the symbol and button is matched or not
     private func isSameSymbol(_ button: UIButton, _ symbol: String) -> Bool {
         return button.title(for: .normal) == symbol
     }
     
+    /// To get the move of button based on index to store in database
     private func getMoveOfButton(index : Int) -> MoveOfButton {
         var move = MoveOfButton.a1
         if index == 1 {
@@ -239,6 +244,7 @@ class MainBoard: UIViewController {
         return move
     }
     
+    /// This method will present alert to display result
     private func showResultInAlert(title: String) {
         CoreDataHelper.instance.modifyCrossValue(count: intCrossesScore)
         CoreDataHelper.instance.modifyNoughtValue(count: intNoughtsScore)
@@ -251,6 +257,7 @@ class MainBoard: UIViewController {
         self.present(ac, animated: true)
     }
     
+    /// When it is draw, this method helps to check that all the buttons are filled means all moves done
     private func isFullBoardFilled() -> Bool {
         for button in arrBoardButtons {
             if button.title(for: .normal) == nil {
@@ -260,6 +267,7 @@ class MainBoard: UIViewController {
         return true
     }
     
+    /// To clear the board
     private func clearBoard() {
         for button in arrBoardButtons {
             button.setTitle(nil, for: .normal)
@@ -281,6 +289,7 @@ class MainBoard: UIViewController {
         }
     }
     
+    /// When user tap on  move, this method will be called
     private func addToBoard(_ sender: UIButton) {
         if(sender.title(for: .normal) == nil) {
             var turn = ""
@@ -309,7 +318,8 @@ class MainBoard: UIViewController {
         }
     }
     
-    func checkForUndo() {
+    /// When user shake device, to remove last move, this method will be called
+    func undoLastOperation() {
         if let lastTag = arrTags.last {
             if lastTag == 1 {
                 a1.setTitle(nil, for: .normal)
@@ -352,7 +362,7 @@ class MainBoard: UIViewController {
                 
                 print("Shake Gesture Recognized !!")
                 
-               checkForUndo()
+               undoLastOperation()
                 
                 var turn = ""
                 if(currentTurn == TURN.NOUGHT) {
